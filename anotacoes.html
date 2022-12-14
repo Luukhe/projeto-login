@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 70vw;
+            margin: auto;
+            text-align: justify;
+            line-height: 1.4em;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>ANOTAÇÕES SOBRE O PROJETO</h1>
+
+    <p><strong>**TAG NOVA OVERFLOW:</strong> Essa tag faz com que qualquer conteúdo que esteja sendo "vazado" de <strong>caixas filhas</strong>, seja <strong>ESCONDIDO.</strong> Ou seja, imagens ou qualquer outra coisa que ultrapasse os limites da caixa mãe serão ocultados.</p>
+
+    <p><strong>****SOBRE COMO AGIR COM O FLOAT (Coisas em que eu tive dúvidas):</strong> No media query para tablet, o projeto pediu que as duas divs (de imagem e formulário) agora ficassem <strong>uma ao lado da outra</strong>. Foi possível denominando que a div imagem fosse um <strong><ins>"float: left"</ins></strong> e a div do formulário fosse um <strong><ins>"float: right".</ins></strong> Só que a div da imagem <strong>desapareceu pois o width estava zerado</strong> (por algum motivo que eu desconheço). Logo, resolvíamos colocando um valor para o width da imagem. Mas, nas tentativas sozinho, outro fator que fazia com que as divs "bugassem" ou "sumissem" era que, <strong>dado um valor de width para cada uma das divs, se esse valor <ins>SOMADO</ins> fosse <ins>MAIOR</ins> do que a <ins>largura (width)</ins> da container mãe (que é a section de id login), as divs se <ins>EMPILHAVAM</ins>, dando o efeito de que tinham sumido.</strong> Logo, não adiantava muito colocar valores específicos em píxel para as duas divs, pois conforme eu ia testando a responsividade (esticando ou diminuindo a tela), o valor de width da section que é a container mãe <strong><ins>mudava</ins></strong>, fazendo com que ou as divs ficassem muito longe uma das outras (no caso de esticar), ou que a <strong>soma das duas ficasse maior do que ela</strong> (no caso de encolher a tela). <br> 
+    ENTÃO, a solução foi colocar valores de width para as divs em <strong>PORCENTAGEM</strong>, para que ficassem sempre <strong><ins>proporcionais</ins></strong> ao <strong>valor da section container mãe!</strong> <br>
+    (Outra coisa que não entrava na minha cabeça de jeito nenhum era o porquê de a div formulário não conseguir ocupar a altura inteira da section, era pq o form no HTML estava vazio e estava empacando o resto do conteúdo de crescer)</p>
+
+    <p><strong>EFEITO TRANSITION:</strong> O efeito transitio do projeto foi feito usando realmente a tag <strong>transition, <ins>PORÉM, COM VALORESSSSSSS DE WIDTH E HEIGHT,</ins> com os tempos e separados por vírgula. Assim: <ins>transition: width 0.3s, height 0.3s;</ins></strong></p>
+
+    <p><strong>SUAVIZADA NO TRANSITION:</strong> Usa-se a propriedade chamada <strong>transition-timing-function: ease;</strong> para dar um efeito de suavidade na animação do transition!</p>
+</body>
+</html>
