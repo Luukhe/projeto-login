@@ -14,6 +14,10 @@
             text-align: justify;
             line-height: 1.4em;
         }
+
+        li {
+            margin-bottom: 15px;
+        }
     </style>
 
 </head>
@@ -40,6 +44,20 @@
 
     <p><strong>****"CENTRALIZANDO" OS ÍCONES:</strong>Por padrão quando adicionamos os ícones, eles ficam meio para cima em relação ao conteúdo (coisa que eu não consegui mexer de jeito nenhum sozinho). Pelo que eu entendi até agora, <strong>podemos "centralizar" o ícone primeiramente nos referindo a eles no CSS com o CAMINHO QUASE TODO praticamente (como dito acima) e, depois, aumentando um pouco o tamanho dele <ins>usando font-size</ins>, aumentando um pouco a caixa dele <ins>usando width, e depois APLICANDO UM PADDING PRA ELE DAR UMA DESLOCADINHA PRO MEIO!!</ins></strong></p>
 
-    <p><strong>***AJEITANDO O TAMANHO DO INPUT DE LOGIN:</strong> Aparentemente, o <strong>font-size</strong> também serve para aumentar o tamanho do input (verticalmente, como se fosse um height), <strong>mas não serve para determinar o tamanho real de configuração que queremos.</strong> </p>
+    <p><strong>***AJEITANDO O TAMANHO DO INPUT DE LOGIN:</strong> Aparentemente, o <strong>font-size</strong> também serve para aumentar o tamanho do input (verticalmente, como se fosse um height), <strong>mas não serve para determinar o tamanho real de configuração que queremos.</strong></p>
+
+    <p><strong><ins>******ALGO MUITO IMPORTANTE A SER LEVADO EM CONSIDERAÇÃO:</ins></strong> Sobre centralizar e/ou ajeitar um campo ou objeto, eu não sei como será daqui para frente com os estudos das tecnologias de <strong>grid, flexbox etc.</strong> Mas, uma coisa que <strong>(pelo menos até agora)</strong> eu aprendi, é que nem sempre (pelo menos até agora sem as tecnologias novas citadas) as coisas ficarão centralizadinhas ou certinha da forma que queremos. E para isso, às vezes é preciso recorrer a <strong>artimanhas e "pequenos píxels"</strong> para conseguirmos colocar algo onde queremos,<strong><ins> EXEMPLO: A CAIXA DE LOGIN DO PROJETO LOGIN, onde mesmo tentando fazer com que ambos o ícone e o campo de login tivessem um width onde juntos somados dava 100% para que fossem os dois encaixados na caixa (tentei fazer os ícones com width de 10% e a caixa de login 90%), não dava certo e a caixa de login "QUEBRAVA" para a diagonal, ou seja, não ficava certinha nem à direita e nem para cima.</ins></strong> <br>
+    Como foi feito então:</p>
+    <ol>
+        <li><strong>width: calc(100% - 45px); ENCAIXANDO O CAMPO DE LOGIN HORIZONTALMENTE:</strong> Sim, pode-se calcular no CSS para definir com mais precisão <strong>a diferença entre dois elementos em uma caixa</strong> (e ainda pode-se calcular porcentagem com píxel). No caso, a intenção era fazer o campo de login ocupar a maior parte e esse cálculo foi feito para atribuir à caixa de login o <strong>width mais preciso, já que o outro elemento tinha width de 40px <strong>(sim, não foi exatamente o valor definido no cálculo, mas foi a melhor diferença encontrada, pois mesmo usando o exato valor de width do ícone, o campo de login ainda "quebrava")</strong>, a diferença entre eles então seria o width da caixa de login!</strong> Tendo então feito isso, ainda sobrava um mínimo píxel de diferença entre o encaixe do campo de login, com a div container atrás, mas ainda assim foi o mais próximo encontrado. <strong>Foi resolvido colocando uma borda da mesma cor do background, para dar um efeito de bordado mesmo (criatividade).</strong></li>
+        <li><strong>transform: translateY(-10px); ENCAIXANDO O CAMPO DE LOGIN VERTICALMENTE:</strong> Tendo então conseguido "encostar" o campo de login horizontalmente no limite onde queríamos, faltava encaixar verticalmente. <strong>Já visto antes, o transform translate nos permite reposicionar certo elemento, lembrando que o valor negativo faz com que o elemento ande para o lado inverso, pois o padrão é sempre para baixo e para direita, já que o ponto de ancoragem é sempre o ponto superior esquerdo <ins>(nesse caso para CIMA, pois o valor usado é o "translateY", que é apenas no eixo VERTICAL)</ins></strong> <br>
+        <strong>NOTA:</strong> transform: translate sem Y ou X definido é quase um "shorthand" onde aceita os dois valores <strong>(como já visto na centralização de algum objeto feito anteriormente).</strong> <br>
+        No caso então: <strong>transform: translate(eixo X, eixo Y)</strong> <br>
+        <strong>NOTA 2:</strong> Quando tentei sozinho, tentei usar a propriedade <strong>bottom</strong> para tentar posicionar a caixa de login verticalmente e até que consegui, <strong>mas só funcionou na versão mobile, nos outros media queries ficou desencaixado.</strong> Logo, o translate funcionou para também as outras media queries, e o bottom só funcionou para o mobile.</li>
+    </ol>
+
+    <p><strong>DICA:</strong> O professor disse que todas as propriedades de <strong>transition, transform e translate</strong> devem ficar sempre em ÚLTIMO na declaração de CSS, pois podem haver bugs devido a elas!</p>
+
+    <p><strong>PSEUDO CLASSE "FOCUS-WITHIN":</strong> É uma pseudo classe muito legal que dá aquele efeito de, onde o campo estiver selecionado, a propriedade que colocarmos será mostrada <strong>(Um exemplo bem comum, é quando um campo está atualmente selecionado, ele fica branco, poi tem justamente um background color white, como também foi usado no projeto).</strong></p>
 </body>
 </html>
